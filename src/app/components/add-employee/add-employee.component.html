@@ -1,0 +1,39 @@
+<div class="add-employee-container">
+  <h2 class="heading">Add Employee</h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required>
+      <mat-error *ngIf="employeeForm.get('firstName')?.hasError('required')">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required>
+      <mat-error *ngIf="employeeForm.get('lastName')?.hasError('required')">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department" required>
+      <mat-error *ngIf="employeeForm.get('department')?.hasError('required')">
+        Department is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" required>
+      <mat-error *ngIf="employeeForm.get('position')?.hasError('required')">
+        Position is required
+      </mat-error>
+    </mat-form-field>
+    <div class="file-input-container">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*">
+      <img [src]="imagePreviewUrl" class="image-preview" [ngClass]="{'visible': imagePreviewUrl}" alt="Image Preview">
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="employeeForm.invalid">Add Employee</button>
+  </form>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

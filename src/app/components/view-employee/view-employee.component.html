@@ -1,0 +1,19 @@
+<div class="view-employee-container">
+  <h2 class="heading">Employee Details</h2>
+  <div *ngIf="employee; else errorBlock">
+    <h3 class="employee-name">{{ employee.firstName }} {{ employee.lastName }}</h3>
+    <div class="employee-details">
+      <div *ngIf="employee.profilePicture" class="profile-picture">
+        <img [src]="employee.profilePicture" alt="Profile Picture" width="150" height="150">
+      </div>
+      <div class="employee-info">
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+        <p><strong>Position:</strong> {{ employee.position }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #errorBlock>
+    <div class="error-message">{{ errorMessage }}</div>
+  </ng-template>
+</div>

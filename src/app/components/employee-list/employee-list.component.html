@@ -1,0 +1,55 @@
+<div class="employee-list-container">
+  <h2 class="heading">Employee List</h2>
+  <div class="top-bar">
+    <div class="search-form">
+      <mat-form-field appearance="fill" class="small-field">
+        <mat-label>Department</mat-label>
+        <input matInput [(ngModel)]="departmentFilter" placeholder="e.g., HR">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="small-field">
+        <mat-label>Position</mat-label>
+        <input matInput [(ngModel)]="positionFilter" placeholder="e.g., Manager">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="searchEmployees()">Search</button>
+    </div>
+    <div class="action-buttons">
+      <button mat-raised-button color="accent" routerLink="/employee/add">Add Employee</button>
+    </div>
+  </div>
+  
+  <table mat-table [dataSource]="employees" class="employee-table">
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let employee">{{ employee.firstName }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let employee">{{ employee.lastName }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef>Department</th>
+      <td mat-cell *matCellDef="let employee">{{ employee.department }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>Position</th>
+      <td mat-cell *matCellDef="let employee">{{ employee.position }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let employee">
+        <button mat-button color="primary" [routerLink]="['/employee/view', employee.id]">View</button>
+        <button mat-button color="accent" [routerLink]="['/employee/edit', employee.id]">Edit</button>
+        <button mat-button color="warn" (click)="deleteEmployee(employee.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="['firstName', 'lastName', 'department', 'position', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['firstName', 'lastName', 'department', 'position', 'actions']"></tr>
+  </table>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

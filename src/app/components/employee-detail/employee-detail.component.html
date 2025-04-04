@@ -1,0 +1,37 @@
+<div class="employee-detail-container">
+  <h2 class="heading">Update Employee</h2>
+  <form *ngIf="employeeForm" [formGroup]="employeeForm" (ngSubmit)="onUpdate()">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" />
+    </mat-form-field>
+  
+    <div *ngIf="previewImage" class="preview">
+      <p>Current Profile Picture:</p>
+      <img [src]="previewImage" alt="Profile" width="120" height="120" />
+    </div>
+  
+    <div class="file-input-container">
+      <label for="file">Change Profile Picture:</label>
+      <input type="file" (change)="onFileSelected($event)" />
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit">Update Employee</button>
+  </form>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

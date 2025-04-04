@@ -1,0 +1,68 @@
+.view-employee-container {
+  max-width: 31.25rem;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+
+  .heading {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+  }
+
+  .employee-name {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+  }
+
+  .employee-details {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    .profile-picture {
+      flex: 0 0 auto;
+
+      img {
+        max-width: 9.375rem;
+        max-height: 9.375rem;
+        object-fit: cover;
+        border-radius: 0.25rem;
+        border: 0.0625rem solid #ddd;
+      }
+    }
+
+    .employee-info {
+      flex: 1;
+
+      p {
+        font-size: 1rem;
+        color: #555;
+        margin: 0.5rem 0;
+
+        strong {
+          color: #333;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .error-message {
+    margin-top: 1rem;
+    padding: 0.625rem;
+    background-color: #ffebee;
+    color: #c62828;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}

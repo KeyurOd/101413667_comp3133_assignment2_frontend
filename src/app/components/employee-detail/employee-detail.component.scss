@@ -1,0 +1,110 @@
+.employee-detail-container {
+  max-width: 31.25rem;
+  width: 90%;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+
+  .heading {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    mat-form-field {
+      width: 100%;
+
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+
+        .mat-form-field-flex {
+          background-color: #fff;
+          border-radius: 0.25rem;
+          border: 0.0625rem solid #ddd;
+        }
+
+        .mat-form-field-underline {
+          display: none;
+        }
+
+        .mat-error {
+          font-size: 0.75rem;
+          color: #c62828;
+        }
+      }
+    }
+
+    .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.625rem;
+      margin: 0.625rem 0;
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #555;
+      }
+
+      img {
+        max-width: 7.5rem;
+        max-height: 7.5rem;
+        object-fit: cover;
+        border: 0.0625rem solid #ddd;
+        border-radius: 0.25rem;
+      }
+    }
+
+    .file-input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+
+      label {
+        font-size: 0.875rem;
+        color: #555;
+      }
+
+      input[type="file"] {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    button {
+      align-self: flex-start;
+      padding: 0.625rem 1.25rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+
+      &:hover:not(:disabled) {
+        background-color: #1976d2;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .error {
+    margin-top: 0.9375rem;
+    padding: 0.625rem;
+    background-color: #ffebee;
+    color: #c62828;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}
