@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EmployeeService } from '../../services/employee.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-view-employee',
@@ -21,16 +22,16 @@ export class ViewEmployeeComponent implements OnInit {
     this.employeeService.getEmployeeById(id).subscribe(
       res => {
         console.log('Employee data:', res);
-  
-      
-        const backendURL = 'http://localhost:5001'; 
+
+        // Use the backend URL from environment
+        const backendURL = environment.backendUrl || 'https://one01413667-comp3133-assignment2-backend.onrender.com';
         const modifiedEmployee = {
           ...res,
           profilePicture: res.profilePicture?.startsWith('http')
             ? res.profilePicture
-            : `${backendURL}${res.profilePicture}` 
+            : `${backendURL}${res.profilePicture}`
         };
-  
+
         this.employee = modifiedEmployee;
       },
       err => {
@@ -39,6 +40,4 @@ export class ViewEmployeeComponent implements OnInit {
       }
     );
   }
-  
-  
 }
