@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EmployeeService } from '../../services/employee.service';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/enviroment';
 
 @Component({
   selector: 'app-view-employee',
