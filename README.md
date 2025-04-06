@@ -1,59 +1,61 @@
-# 101413667Comp3133Assignment2Frontend
+# Employee Management Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+This is the frontend of an Employee Management System built with Angular, using Angular Material for UI components. It provides features like employee CRUD operations, login/signup authentication, and profile picture uploads.
 
-## Development server
+## Prerequisites
+- Node.js (v16.x or later)
+- npm (v8.x or later)
+- Angular CLI (install globally: `npm install -g @angular/cli`)
 
-To start a local development server, run:
+## Setup Instructions
+1. **Clone the Repository**
+   ```bash
+   git clone <repository-url>
+   cd employee-management-frontend
+   ```
 
-```bash
-ng serve
-```
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+3. **Configure Environment**
+   - Create a file named `environment.ts` in `src/environments/` with:
+     ```typescript
+     export const environment = {
+       production: false,
+       apiUrl: 'http://localhost:5001/api' // Adjust to your backend URL
+     };
+     ```
+   - For production, update `environment.prod.ts` accordingly.
 
-## Code scaffolding
+4. **Run the Application**
+   ```bash
+   ng serve
+   ```
+   - Open your browser at `http://localhost:4200`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+## Features
+- **Login/Signup**: User authentication with email and password.
+- **Employee Management**:
+  - Add employees with profile pictures.
+  - View, edit, and delete employee details.
+  - Search employees by department and position.
+- **Responsive UI**: Styled with Angular Material and custom SCSS using `%` and `rem`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Usage
+1. **Login**: Navigate to `/login`, enter credentials, and access the employee list.
+2. **Signup**: Go to `/signup` to create a new account.
+3. **Employee List**: View at `/employees`, use search filters, and perform CRUD actions.
+4. **Add Employee**: Click "Add Employee" to create a new record.
+5. **View/Edit**: Use action buttons in the table to view or edit employee details.
 
-```bash
-ng generate --help
-```
+## Dependencies
+- `@angular/core`, `@angular/forms`, `@angular/router`
+- `@angular/material` (for UI components)
+- Custom SCSS for styling
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Notes
+- Ensure the backend API is running at the configured `apiUrl`.
+- Profile pictures are fetched from the backend URL (e.g., `http://localhost:5001`).
