@@ -1,4 +1,3 @@
-// src/app/services/file-upload.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,13 +7,17 @@ import { environment } from '../../environments/environment.prod';
   providedIn: 'root'
 })
 export class FileUploadService {
-  private uploadUrl = environment.backendUrl;
+  private uploadUrl: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const baseUrl = environment.backendUrl || 'https://one01413667-comp3133-assignment2-backend.onrender.com';
+    this.uploadUrl = `${baseUrl}/upload`;
+    console.log('FileUploadService uploadUrl:', this.uploadUrl); 
+  }
 
   uploadFile(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('profilePicture', file);
-    return this.http.post<any>(this.uploadUrl, formData);
+    return this.http.post(this.uploadUrl, formData);
   }
 }
