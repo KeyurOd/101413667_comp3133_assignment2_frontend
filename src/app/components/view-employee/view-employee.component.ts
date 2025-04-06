@@ -25,7 +25,6 @@ export class ViewEmployeeComponent implements OnInit {
 
         // Use the backend URL from environment
         const backendURL = environment.backendUrl || 'https://one01413667-comp3133-assignment2-backend.onrender.com';
-        console.log('backendURL:', backendURL); // Debug log
         const modifiedEmployee = {
           ...res,
           profilePicture: res.profilePicture?.startsWith('http')
@@ -33,7 +32,6 @@ export class ViewEmployeeComponent implements OnInit {
             : `${backendURL}${res.profilePicture}`
         };
 
-        console.log('Modified profilePicture:', modifiedEmployee.profilePicture); // Debug log
         this.employee = modifiedEmployee;
       },
       err => {
