@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeService } from '../../services/employee.service';
 import { FileUploadService } from '../../services/file-upload.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-employee-detail',
@@ -53,7 +54,7 @@ export class EmployeeDetailComponent implements OnInit {
           profilePicture: [employee.profilePicture]
         });
 
-        const backendURL = 'http://localhost:5001';
+        const backendURL = environment.backendUrl
         this.previewImage = employee.profilePicture?.startsWith('http')
         ? employee.profilePicture
         : `${backendURL}${employee.profilePicture}`;
