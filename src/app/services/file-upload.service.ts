@@ -12,10 +12,11 @@ export class FileUploadService {
   constructor(private http: HttpClient) {
     const baseUrl = environment.backendUrl || 'https://one01413667-comp3133-assignment2-backend.onrender.com';
     this.uploadUrl = `${baseUrl}/upload`;
-    console.log('FileUploadService uploadUrl:', this.uploadUrl); 
+    console.log('FileUploadService uploadUrl:', this.uploadUrl); // Debug log
   }
 
   uploadFile(file: File): Observable<any> {
+    console.log('Uploading file to:', this.uploadUrl); // Additional debug log
     const formData = new FormData();
     formData.append('profilePicture', file);
     return this.http.post(this.uploadUrl, formData);
